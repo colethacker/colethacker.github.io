@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Weird, the Eerie and the Artificial"
-date: 2025-05-08
+date: 2025-08-15
 categories: AI
 ---
 * TOC
