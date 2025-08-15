@@ -1,0 +1,612 @@
+---
+---
+
+//
+// SCSS TEMPLATE FROM MINIMA THEME
+//
+// This file contains all the original styles from the Minima theme, converted
+// into structured SCSS. You can now easily modify variables and styles
+// to build your own custom theme.
+//
+
+// 1. VARIABLES
+// =============================================================================
+// Define colors, fonts, and sizes here for easy customization.
+$base-font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+$base-font-size:   24px; // Book fonts are often a bit larger
+$base-font-weight: 400;
+$base-line-height: 1.7;
+
+// -- Colors --
+// A warm, low-contrast palette that's easy on the eyes.
+$text-color:       #3a2d21; // A dark, warm brown instead of black
+$background-color: #f5ede3; // A warm, sepia-toned paper color
+$brand-color:      #5c4b3f; // A subtle, darker brown for links
+
+$grey-color:       #8a7f76;
+$grey-color-light: #e5e1db;
+$grey-color-dark:  #4a3c2f;
+
+// -- Layout --
+$spacing-unit:     40px; // Slightly more generous spacing
+$content-width:    820px;
+
+// -- Media Query Breakpoints --
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+// 2. BASE STYLES & RESETS
+// =============================================================================
+
+/** Reset some basic elements */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+/** Basic styling */
+body {
+  font: $base-font-weight $base-font-size/$base-line-height $base-font-family;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/** Set `margin-bottom` to maintain vertical rhythm */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+.highlight {
+  margin-bottom: $spacing-unit / 2;
+}
+
+/** `main` element */
+main {
+  display: block; // Fix for IE 11
+}
+
+/** Images and Figures */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: $base-font-size - 2px;
+}
+
+/** Lists */
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+}
+
+/** Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $base-font-weight;
+}
+
+/** Links */
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  &:visited {
+    color: darken($brand-color, 15%);
+  }
+
+  &:hover {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+/** Blockquotes */
+blockquote {
+  color: $grey-color;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit / 2;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/** Code formatting */
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid $grey-color-light;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/** Tables */
+table {
+  margin-bottom: $spacing-unit;
+  width: 100%;
+  text-align: left;
+  color: #3f3f3f;
+  border-collapse: collapse;
+  border: 1px solid $grey-color-light;
+
+  tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+
+  th, td {
+    padding: 10px 15px;
+  }
+
+  th {
+    background-color: #f0f0f0;
+    border: 1px solid #dedede;
+    border-bottom-color: #c9c9c9;
+  }
+
+  td {
+    border: 1px solid $grey-color-light;
+  }
+}
+
+
+// 3. LAYOUT & COMPONENTS
+// =============================================================================
+
+/** Wrapper */
+.wrapper {
+  max-width: calc(#{$content-width} - (#{$spacing-unit}));
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+
+  @media screen and (max-width: $on-laptop) {
+    max-width: calc(#{$content-width} - (#{$spacing-unit} / 2));
+    padding-right: $spacing-unit / 2;
+    padding-left: $spacing-unit / 2;
+  }
+
+  // Clearfix
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/** Site header */
+.site-header {
+  min-height: 55.95px;
+  position: relative;
+}
+
+.site-header .wrapper {
+  box-shadow: inset 0 -1px 0 0 #000000;
+}
+
+.site-title {
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 54px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
+
+  &,
+  &:visited {
+    color: $grey-color-dark;
+  }
+}
+
+/** Site navigation */
+.site-nav {
+  float: right;
+  line-height: 54px;
+
+  .nav-trigger { display: none; }
+  .menu-icon { display: none; }
+
+  .page-link {
+    color: $text-color;
+    line-height: $base-line-height;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  @media screen and (max-width: $on-palm) {
+    position: absolute;
+    top: 9px;
+    right: $spacing-unit / 2;
+    background-color: $background-color;
+    border: 1px solid $grey-color-light;
+    border-radius: 5px;
+    text-align: right;
+
+    label[for="nav-trigger"] {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 36px;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      display: block;
+      float: right;
+      width: 36px;
+      height: 26px;
+      line-height: 0;
+      padding-top: 10px;
+      text-align: center;
+
+      > svg {
+        fill: $grey-color-dark;
+      }
+    }
+
+    input ~ .trigger {
+      clear: both;
+      display: none;
+    }
+
+    input:checked ~ .trigger {
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    .page-link {
+      display: block;
+      padding: 5px 10px;
+      margin-left: 20px;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/** Site footer */
+.site-footer {
+  border-top: 1px solid $grey-color-light;
+  padding: $spacing-unit 0;
+}
+
+.footer-heading {
+  font-size: 18px;
+  margin-bottom: $spacing-unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+.footer-col-wrapper {
+  font-size: 15px;
+  color: $grey-color;
+  margin-left: -$spacing-unit / 2;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.footer-col {
+  float: left;
+  margin-bottom: $spacing-unit / 2;
+  padding-left: $spacing-unit / 2;
+}
+
+.footer-col-1 { width: calc(35% - (#{$spacing-unit} / 2)); }
+.footer-col-2 { width: calc(20% - (#{$spacing-unit} / 2)); }
+.footer-col-3 { width: calc(45% - (#{$spacing-unit} / 2)); }
+
+@media screen and (max-width: $on-laptop) {
+  .footer-col-1,
+  .footer-col-2 {
+    width: calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .footer-col-3 {
+    width: calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+@media screen and (max-width: $on-palm) {
+  .footer-col {
+    float: none;
+    width: calc(100% - (#{$spacing-unit} / 2));
+  }
+}
+
+/** Page content */
+.page-content {
+  padding: $spacing-unit 0;
+  flex: 1;
+}
+
+.page-heading {
+  font-size: 32px;
+}
+
+.post-list-heading {
+  font-size: 28px;
+}
+
+.post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.post-meta {
+  font-size: 14px;
+  color: $grey-color;
+}
+
+.post-link {
+  display: block;
+  font-size: 24px;
+}
+
+/** Posts */
+.post-header {
+  margin-bottom: $spacing-unit;
+}
+
+.post-title {
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+
+  @media screen and (max-width: $on-laptop) {
+    font-size: 36px;
+  }
+}
+
+.post-content {
+  margin-bottom: $spacing-unit;
+  text-align: justify;
+
+  h2 {
+    font-size: 32px;
+    @media screen and (max-width: $on-laptop) { font-size: 28px; }
+  }
+  h3 {
+    font-size: 26px;
+    @media screen and (max-width: $on-laptop) { font-size: 22px; }
+  }
+  h4 {
+    font-size: 20px;
+    @media screen and (max-width: $on-laptop) { font-size: 18px; }
+  }
+}
+
+/** Social media icons */
+.svg-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  fill: $grey-color;
+  padding-right: 5px;
+  vertical-align: text-top;
+}
+
+.social-media-list {
+  li + li {
+    padding-top: 5px;
+  }
+  
+  a:hover {
+    text-decoration: none;
+
+    .username {
+      text-decoration: underline;
+    }
+  }
+}
+
+// right hand container for table of contents collapse and expand
+.post-container {
+  display: flex;
+  justify-content: center;
+  position: relative; 
+}
+
+.post-sidebar {
+  flex: 0 0 260px;
+  margin-right: 72px; 
+  transition: all 0.3s ease-in-out;
+
+  .sidebar-content {
+    position: sticky;
+    top: 30px;
+  }
+  h4 {
+    font-size: 16px;
+    color: $grey-color;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid $grey-color-light;
+    padding-bottom: 10px;
+  }
+}
+
+// Table of Contents list
+.post-toc ul {
+  list-style: none; margin-left: 0; padding-left: 10px;
+  ul { margin: 5px 0; }
+  a {
+    color: $grey-color; text-decoration: none; display: block; padding: 4px 0;
+    border-left: 2px solid transparent; padding-left: 10px;
+    &:hover { color: $text-color; background-color: rgba(0,0,0,0.03); }
+  }
+}
+
+.post-main-content {
+  max-width: $content-width;
+  width: 100%;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  
+  left: calc(50% - (#{$content-width} / 2) - 52px);
+  
+  transition: transform 0.3s ease-in-out;
+
+  background-color: $background-color;
+  border: 1px solid $grey-color-light;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  color: $grey-color-dark;
+  text-decoration: none !important;
+
+  &:hover {
+    border-color: $grey-color;
+    text-decoration: none;
+  }
+}
+
+/* -- Collapsed State -- */
+.post-container.sidebar-collapsed {
+  
+  .post-sidebar {
+    width: 0;
+    flex-basis: 0;
+    margin: 0;
+    padding: 0;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+
+  .sidebar-toggle {
+     transform: rotate(360deg);
+  }
+}
+
+// 4. SYNTAX HIGHLIGHTING
+// =============================================================================
+.highlight {
+  background: #fff;
+}
+.highlighter-rouge .highlight {
+  background: #eef;
+}
+.highlight {
+  .c { color: #998; font-style: italic } // Comment
+  .err { color: #a61717; background-color: #e3d2d2 } // Error
+  .k { font-weight: bold } // Keyword
+  .o { font-weight: bold } // Operator
+  .cm { color: #998; font-style: italic } // Comment.Multiline
+  .cp { color: #999; font-weight: bold } // Comment.Preproc
+  .c1 { color: #998; font-style: italic } // Comment.Single
+  .cs { color: #999; font-weight: bold; font-style: italic } // Comment.Special
+  .gd { color: #000; background-color: #fdd } // Generic.Deleted
+  .gd .x { color: #000; background-color: #faa } // Generic.Deleted.Specific
+  .ge { font-style: italic } // Generic.Emph
+  .gr { color: #a00 } // Generic.Error
+  .gh { color: #999 } // Generic.Heading
+  .gi { color: #000; background-color: #dfd } // Generic.Inserted
+  .gi .x { color: #000; background-color: #afa } // Generic.Inserted.Specific
+  .go { color: #888 } // Generic.Output
+  .gp { color: #555 } // Generic.Prompt
+  .gs { font-weight: bold } // Generic.Strong
+  .gu { color: #aaa } // Generic.Subheading
+  .gt { color: #a00 } // Generic.Traceback
+  .kc { font-weight: bold } // Keyword.Constant
+  .kd { font-weight: bold } // Keyword.Declaration
+  .kp { font-weight: bold } // Keyword.Pseudo
+  .kr { font-weight: bold } // Keyword.Reserved
+  .kt { color: #458; font-weight: bold } // Keyword.Type
+  .m { color: #099 } // Literal.Number
+  .s { color: #d14 } // Literal.String
+  .na { color: #008080 } // Name.Attribute
+  .nb { color: #0086B3 } // Name.Builtin
+  .nc { color: #458; font-weight: bold } // Name.Class
+  .no { color: #008080 } // Name.Constant
+  .ni { color: #800080 } // Name.Entity
+  .ne { color: #900; font-weight: bold } // Name.Exception
+  .nf { color: #900; font-weight: bold } // Name.Function
+  .nn { color: #555 } // Name.Namespace
+  .nt { color: #000080 } // Name.Tag
+  .nv { color: #008080 } // Name.Variable
+  .ow { font-weight: bold } // Operator.Word
+  .w { color: #bbb } // Text.Whitespace
+  .mf { color: #099 } // Literal.Number.Float
+  .mh { color: #099 } // Literal.Number.Hex
+  .mi { color: #099 } // Literal.Number.Integer
+  .mo { color: #099 } // Literal.Number.Oct
+  .sb { color: #d14 } // Literal.String.Backtick
+  .sc { color: #d14 } // Literal.String.Char
+  .sd { color: #d14 } // Literal.String.Doc
+  .s2 { color: #d14 } // Literal.String.Double
+  .se { color: #d14 } // Literal.String.Escape
+  .sh { color: #d14 } // Literal.String.Heredoc
+  .si { color: #d14 } // Literal.String.Interpol
+  .sx { color: #d14 } // Literal.String.Other
+  .sr { color: #009926 } // Literal.String.Regex
+  .s1 { color: #d14 } // Literal.String.Single
+  .ss { color: #990073 } // Literal.String.Symbol
+  .bp { color: #999 } // Name.Builtin.Pseudo
+  .vc { color: #008080 } // Name.Variable.Class
+  .vg { color: #008080 } // Name.Variable.Global
+  .vi { color: #008080 } // Name.Variable.Instance
+  .il { color: #099 } // Literal.Number.Integer.Long
+}

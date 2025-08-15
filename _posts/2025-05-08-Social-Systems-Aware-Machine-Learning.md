@@ -4,6 +4,10 @@ title: "Social Systems Aware Machine Learning"
 date: 2025-05-08
 categories: SSAML
 ---
+
+* TOC
+{:toc}
+
 ## a beginning is a time for taking the most delicate care 
 
 In this blog series, I'm going to explore applying what I know about Luhmann's social systems theory (more on this later) to AI, but more specifically, LLMs. We probably take too much for granted in our current paradigm, and it might be worthwhile to explore different paradigms for examining how to develop AI in a social systems-aware manner. I don't pretend to be a Luhmann or AI scholar. I have some knowledge of both, so forgive my ideas if they seem weird.
