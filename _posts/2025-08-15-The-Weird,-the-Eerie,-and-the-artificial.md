@@ -4,6 +4,9 @@ title: "The Weird, the Eerie and the Artificial"
 date: 2025-05-08
 categories: AI
 ---
+* TOC
+{:toc}
+
 
 We've felt at certain times something being off, something just at the edges of perception. In Philip Larkin's *Aubade*, he describes death as being "just on the edge of vision", and talks about it as being almost a knowable but yet unknown horror. We've all had experiences with death, could've been seeing roadkill or a family member passing in the night. The experience of being dead however, is something unexperienced. When we do see someone as having passed there is something strange about it, having seen someone, or something, as having existed and lived, but is now not. There is a missingness, where something once was is no longer. There is familiarity, but there is now none. 
 
